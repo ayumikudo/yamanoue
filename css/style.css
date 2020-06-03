@@ -1,0 +1,404 @@
+@charset "utf-8";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  color: rgb(68, 68, 68);
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 2px #0AA095 solid;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header h1 img {
+  width: 200px;
+  height: auto;
+}
+
+main {
+  width: 100%;
+  background: rgb(159, 212, 209);
+}
+
+main .inner {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.search {
+  padding: 2em 2.5em 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.search .count {
+  margin-right: auto;
+  font-size: 1.2em;
+}
+
+.search .count span {
+  font-weight: bold;
+  color: #0AA095;
+}
+
+.search .target {
+  margin-right: 2em;
+}
+
+.search .sort select {
+  font-family: inherit;
+}
+
+.property ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 0 2.5em;
+}
+
+.property ul li {
+  width: 430px;
+  height: auto;
+  margin-top: 2em;
+  padding: 1em;
+  box-sizing: border-box;
+  border: 1px rgb(159, 212, 209) solid;
+  position: relative;
+}
+
+.property ul li:last-child {
+  margin-bottom: 2em;
+}
+
+.property ul li .icon {
+  color: #fff;
+  font-size: .9em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: .5em;
+  background: #ff275d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.property ul li a img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property ul li h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 1em 0;
+}
+
+.property ul li span {
+  background: rgb(159, 212, 209);
+  font-size: .7em;
+  text-align: center;
+  display: inline-block;
+  width: 80px;
+  padding: .3em;
+  margin-right: 1em;
+}
+
+.property ul li .price,
+.property ul li .address,
+.property ul li .traffic,
+.property ul li .area,
+.property ul li .floor {
+  margin: .5em 0;
+  font-size: .9em;
+}
+
+.property ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+.property ul li button.more {
+  font-family: inherit;
+  width: 100%;
+  padding: .7em;
+  margin-top: 1em;
+  background: #0AA095;
+  transition: .3s;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.property ul li button.more:hover {
+  background: #ff275d;
+}
+
+.property ul li button.more a {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.property ul li .two-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.property ul li button.contact,
+.property ul li button.favorite {
+  font-family: inherit;
+  width: 49%;
+  padding: .7em 0 .7em 2em;
+  margin-top: 1em;
+  border: 2px #0AA095 solid;
+  transition: .3s;
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.property ul li button.contact:hover,
+.property ul li button.favorite:hover {
+  background: #ffffe0;
+}
+
+.property ul li button.contact::before {
+  content: "";
+  background: url(../images/icon_mail.svg) no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  left: 40px;
+  z-index: 1;
+}
+
+.property ul li button.favorite::before {
+  content: "";
+  background: url(../images/icon_heart_off.svg) no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  left: 48px;
+  z-index: 1;
+}
+
+.property ul li button.saved::before {
+  content: "";
+  background: url(../images/icon_heart_on.svg) no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  left: 48px;
+  z-index: 1;
+}
+
+/*モーダル*/
+[v-cloak] {
+  display: none;
+}
+
+.modal_bg {
+  background: rgba(117, 117, 117, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.modal_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 3;
+  background: #fff;
+  border: 2px #0AA095 solid;
+  width: 50vw;
+  height: 100vh;
+  padding: 2em;
+}
+
+.modal_box p.label {
+  font-size: .9em;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.modal_box input,
+.modal_box textarea {
+  width: 100%;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  padding: .5em;
+  background: rgb(217, 248, 247);
+  border: 1px rgb(159, 212, 209) solid;
+  font-family: inherit;
+}
+
+.modal_box input {
+  height: 2.5em;
+}
+
+.modal_box textarea {
+  height: 6em;
+  resize: none;
+}
+
+.modal_box .submit {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 2em;
+  color: #fff;
+  background: #0AA095;
+  transition: .3s;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.modal_box .submit:hover {
+  background: #ff275d;
+}
+
+.modal_box button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  display: block;
+  margin: 0 auto;
+  text-decoration: underline;
+}
+
+.modal_box button:hover {
+  color: #0AA095;
+}
+
+.modal_box .errors {
+  color: #ff275d;
+  font-size: .9em;
+}
+
+@media only screen and (max-width: 768px) {
+  main .inner {
+    width: 90%;
+  }
+
+  .search {
+    padding: 1em;
+    display: block;
+  }
+  
+  .search .count {
+    text-align: center;
+  }
+
+  .search .target {
+    margin: 1em 0;
+  }
+
+  .property ul {
+    display: block;
+    margin: 0 1em;
+  }
+  
+  .property ul li {
+    width: 100%;
+  }
+
+  .property ul li .address,
+  .property ul li .traffic {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .property ul li button.contact::before {
+    left: 12px;
+  }
+
+  .property ul li button.favorite::before {
+    left: 18px;
+  }
+
+  .modal_box {
+    width: 80vw;
+    height: 100vh;
+    padding: 1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
